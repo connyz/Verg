@@ -1,0 +1,99 @@
+/* BASICS ---------------- */
+body {
+    background-color: #efefef;
+    font-family: 'Times New Roman', serif;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+a {
+    color: #252525;
+    text-decoration: none;
+}
+
+a:focus,
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline-color: rgb(0, 0, 0);
+    outline-color: rgba(0, 0, 0, 0.6);
+}
+
+label {
+
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    padding-left: 20px;
+}
+
+input[type="submit"],
+button {
+
+}
+
+[disabled] {
+    opacity: 0.7;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::selection {
+    background: #b3d4fc;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.wrap {
+    border-radius: 10px;
+    margin: 25px;
+    padding: 10px;
+    height: 700px;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+.formdiv {
+    position: fixed;
+    width: 15%;
+    float: left;
+    padding: 15px;
+    height: 689px;
+    border-right: 1px dotted black;
+}
+
+.formdiv * {
+    margin-bottom: 5px;
+}
+
+#images {
+
+    width: 85%;
+    float: right;
+    padding: 15px;
+}
+
+img {
+    height: 200px;
+}
+
+.inputB {
+    display: none;
+}
+
+.glassIcon {
+    width: 15px;
+    position: fixed;
+    margin-top: 1px;
+    height: 15px;
+    background-image: url("../images/lglass.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-left: 3px;
+}
