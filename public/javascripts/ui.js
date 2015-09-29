@@ -24,6 +24,9 @@
         // Get value from textfield tags
         var tags = $('#tags').val();
 
+	      // Save searchstring
+	      flick.fn.saveSearch(tags);
+
          // Promise ajaxcall
         var fetchData = flick.fn.getData(tags);
 
@@ -83,8 +86,7 @@
 
     // Function for generating photos
     imageGenerate: function(data) {
-	    console.log(data);
-      // Generate images from response
+	    // Generate images from response
       for (var i = 0; i<data.photos.photo.length; i++){
         $("#images").append("<img src='" + "https://farm" + data.photos.photo[i].farm + ".staticflickr.com/" +
           data.photos.photo[i].server + "/" + data.photos.photo[i].id + "_" + data.photos.photo[i].secret +
@@ -96,7 +98,32 @@
     clearImages: function(){
       // Clear images div
       $("#images").html('');
-    }
+    },
+
+	  // Saves searchstring to localstorage
+	  saveSearch: function(string){
+		  // Check if ls exists, else create empty array to be saved
+		  if(localStorage["savedStrings"]){
+		    var savedStrings = JSON.parse(localStorage["savedStrings"]);
+		  }else{
+			  var savedStrings = [];
+		  }
+
+		  // Add string to array
+		  savedStrings.unshift(string);
+
+		  // Keep array at size 10
+		  if(savedStrings.length == 11) {
+			  savedStrings.pop();
+			  //console.log("arr is popped " + savedStrings.length);
+		  }
+
+		  // Save to localstorage
+		  localStorage["savedStrings"] = JSON.stringify(savedStrings);
+
+		  //var storedSearch = JSON.parse(localStorage["savedStrings"]);
+		  //console.log(storedSearch);
+	  }
 
   };
 
