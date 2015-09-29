@@ -76,7 +76,7 @@ p {
     width: 233px;
     float: left;
     padding: 15px;
-    height: 689px;
+    height: 100%;
     border-right: 1px dotted black;
     overflow: hidden;
 }
