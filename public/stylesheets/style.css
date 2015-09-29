@@ -103,8 +103,8 @@ img {
 .glassIcon {
     width: 15px;
     position: fixed;
-    margin-top: 1px;
-    height: 15px;
+    margin-top: 2px;
+    height: 14px;
     background-image: url("../images/lglass.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
