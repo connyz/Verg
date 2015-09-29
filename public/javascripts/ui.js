@@ -121,8 +121,20 @@
 		  // Save to localstorage
 		  localStorage["savedStrings"] = JSON.stringify(savedStrings);
 
+		  // Start generating list
+		  flick.fn.generateList(savedStrings);
 		  //var storedSearch = JSON.parse(localStorage["savedStrings"]);
 		  //console.log(storedSearch);
+	  },
+
+	  generateList: function(arr){
+		  // Clear current list
+		  $("ul.searchList").empty();
+					  
+		  // Generate list after search
+		  for (var i = 0; i<arr.length; i++){
+			  $(".searchList").append("<li>" + arr[i] +"</li>");
+		  }
 	  }
 
   };
