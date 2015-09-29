@@ -120,23 +120,21 @@
 			  var savedStrings = [];
 		  }
 
-		  // Add string to array
-		  savedStrings.unshift(string);
+		  // Add string to array if string not already exists in list
+		  if($.inArray(string, savedStrings) == -1 ){
+			  savedStrings.unshift(string);
 
-		  // Keep array at size 10
-		  if(savedStrings.length == 11) {
-			  savedStrings.pop();
-			  //console.log("arr is popped " + savedStrings.length);
+			  // Keep array at size 10
+			  if(savedStrings.length == 11) {
+				  savedStrings.pop();
+			  }
+
+			  // Save to localstorage
+			  localStorage["savedStrings"] = JSON.stringify(savedStrings);
+
+			  // Start generating list
+			  flick.fn.generateList(savedStrings);
 		  }
-
-		  // Save to localstorage
-		  localStorage["savedStrings"] = JSON.stringify(savedStrings);
-
-		  // Start generating list
-		  flick.fn.generateList(savedStrings);
-
-		  //var storedSearch = JSON.parse(localStorage["savedStrings"]);
-		  //console.log(storedSearch);
 	  },
 
 	  // Generates list items for searches
