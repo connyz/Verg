@@ -29,6 +29,7 @@ input[type="text"],
 input[type="password"],
 textarea {
     padding-left: 20px;
+    width: 100%;
 }
 
 input[type="submit"],
@@ -63,21 +64,23 @@ p {
 }
 
 .wrap {
+    display: flex;
     border-radius: 10px;
     margin: 25px;
     padding: 10px;
     height: 700px;
     border: 1px solid black;
     overflow: auto;
+
 }
 
 .formdiv {
-    position: fixed;
-    width: 15%;
+    width: 233px;
     float: left;
     padding: 15px;
     height: 689px;
     border-right: 1px dotted black;
+    overflow: hidden;
 }
 
 .formdiv * {
@@ -85,7 +88,6 @@ p {
 }
 
 #images {
-
     width: 85%;
     float: right;
     padding: 15px;

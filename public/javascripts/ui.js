@@ -42,10 +42,24 @@
 
     },
 
-    // Setup function #2
-    setuptwo: function() {
-      // do other things
-    }
+    // Setup clickevent for list items
+    listItemClickEvent: function() {
+	    // When clicking list item, generate new search with keyword
+	    $(document).on( "click", ".searchList li", function () {
+		    $("#tags").val("").val($(this).text());
+		    $("#the_form").trigger("submit");
+	    });
+
+    },
+
+	  //Generate initial list items if page is reloaded
+	  generateInitialList: function(){
+		  if(localStorage["savedStrings"]){
+			  var savedStrings = JSON.parse(localStorage["savedStrings"]);
+
+			  flick.fn.generateList(savedStrings);
+		  }
+	  }
   };
 
   //
@@ -53,7 +67,7 @@
   //
   flick.fn = {
 
-    // Function for getting photos from flickr // test
+    // Function for getting photos from flickr
     getData: function(tags) {
       // Fetch url from settings to call flickr.photos.search
       var flickrApi = flick["settings"]["flickrApiUrl"];
@@ -74,9 +88,6 @@
         {
           // Return generated data
           return data;
-
-          //flick.fn.imageGenerate(data);
-          //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
         },
         error:function (xhr, ajaxOptions, thrownError){
           alert(thrownError);
@@ -123,14 +134,16 @@
 
 		  // Start generating list
 		  flick.fn.generateList(savedStrings);
+
 		  //var storedSearch = JSON.parse(localStorage["savedStrings"]);
 		  //console.log(storedSearch);
 	  },
 
+	  // Generates list items for searches
 	  generateList: function(arr){
 		  // Clear current list
 		  $("ul.searchList").empty();
-					  
+
 		  // Generate list after search
 		  for (var i = 0; i<arr.length; i++){
 			  $(".searchList").append("<li>" + arr[i] +"</li>");
